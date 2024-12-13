@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>二维码绑定(美化版)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>扫描二维码绑定设备</h1>
+  <button id="getQRBtn" class="btn">获取二维码</button>
+  <div id="qrcode-container" class="qrcode-area">点击按钮获取二维码</div>
+</div>
+<script>
+  async function getQRCode() {
+    try {
+      const response = await fetch('http://localhost:8080/v1/qrcodelink?device_name=MyDevice');
+      if (!response.ok) {
+        throw new Error('获取二维码失败: ' + response.statusText);
+      }
+      const imgData = await response.text();
+      const qrcodeContainer = document.getElementById('qrcode-container');
+      if (!imgData) {
+        qrcodeContainer.innerText = '未获取到二维码数据';
+        return;
+      }
+      qrcodeContainer.innerHTML = '<img src="data:image/png;base64,' + imgData + '" alt="QR Code" style="max-width:100%;"/>';
+    } catch (error) {
+      console.error('请求失败:', error);
+      document.getElementById('qrcode-container').innerText = '获取失败: ' + error.message;
+    }
+  }
+
+  document.getElementById('getQRBtn').addEventListener('click', getQRCode);
+</script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    background: #fff;
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    background: #0078d4;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+
+  .btn:hover {
+    background: #005a9e;
+  }
+
+  .qrcode-area {
+    min-height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+  }
+</style>
+</body>
+</html>

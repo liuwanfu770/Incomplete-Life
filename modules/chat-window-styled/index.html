@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>聊天窗口(美化版)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<h1>聊天窗口</h1>
+<input id="acc" type="text" placeholder="账号(例如:+123456789)" class="input">
+<input id="recipient" type="text" placeholder="目标号码" class="input">
+<div id="chat-area" class="chat-area">这里显示聊天记录</div>
+<div class="input-group">
+<input type="text" id="chat-input" placeholder="输入消息" class="input">
+<button id="send-btn" class="btn-sm">发送</button>
+</div>
+<div id="chat-status" class="status-msg"></div>
+</div>
+<script src="chat-window.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Signal CLI 前端整合</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 顶部栏 -->
+<div class="top-bar">
+  <span>Signal CLI 前端整合示例</span>
+  <span id="current-account">当前无账号登录</span>
+</div>
+
+<!-- 主体布局：侧边栏 + 主内容区域 -->
+<div class="layout">
+  <div class="sidebar">
+    <h2>模块列表</h2>
+    <ul>
+      <li><button data-module="../modules/registration-styled/index.html">注册模块</button></li>
+      <li><button data-module="../modules/captcha-styled/index.html">验证码模块</button></li>
+      <li><button data-module="../modules/qrcode-styled/index.html">二维码绑定模块</button></li>
+      <li><button data-module="../modules/account-list-styled/index.html">账号列表模块</button></li>
+      <li><button data-module="../modules/message-list-styled/index.html">消息列表模块</button></li>
+      <li><button data-module="../modules/chat-window-styled/index.html">聊天窗口模块</button></li>
+      <li><button data-module="../modules/group-send-styled/index.html">群发模块</button></li>
+    </ul>
+  </div>
+  
+  <div class="main-content">
+    <!-- 在这里通过iframe加载各模块页面 -->
+    <iframe id="moduleFrame" src="" frameborder="0" class="module-frame"></iframe>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
