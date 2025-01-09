@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Signal CLI Demo - Frontend</title>
+  </head>
+  <body>
+    <h1>Signal CLI + Node + MySQL + Nginx Demo</h1>
+    <button onclick="callHealth()">Check Backend Health</button>
+    <pre id="log"></pre>
+
+    <script>
+      async function callHealth() {
+        try {
+          const res = await fetch("http://localhost/api/health");
+          const data = await res.json();
+          document.getElementById("log").innerText = JSON.stringify(
+            data,
+            null,
+            2
+          );
+        } catch (err) {
+          document.getElementById("log").innerText = "Error: " + err;
+        }
+      }
+    </script>
+  </body>
+</html>

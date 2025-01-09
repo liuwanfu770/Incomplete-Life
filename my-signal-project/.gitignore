@@ -1,0 +1,42 @@
+# 忽略所有上级目录内容
+../*
+
+# 忽略 Node.js 的 node_modules 目录
+node_modules/
+
+# 忽略 Docker 相关文件
+.docker/
+
+# 忽略 macOS 系统文件
+.DS_Store
+
+# 忽略日志文件
+*.log
+
+# 忽略 npm 和 yarn 的缓存文件
+.npm/
+.yarn/
+
+# 忽略 IDE 和编辑器相关目录
+.vscode/
+.quokka/
+.rest-client/
+
+# 忽略 Signal 配置和缓存
+.signal/
+signal-cli/
+
+# 忽略其他非项目相关目录
+Applications/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+Sketch_Files/
+aewwqe/
+caomaowu/
+tinag/
